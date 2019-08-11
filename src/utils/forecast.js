@@ -8,8 +8,19 @@ const forecast = (longitude, latitude, callback)=>{
         else if(error)
             callback("Code: " + code + "\nError: " + error);
         else 
-            callback(undefined, daily.data[0].summary + " It is currently " + currently.temperature + " degrees out. There is a " + currently.precipProbability + "% chance of rain.");
+            callback(undefined, "It's " + unixToTIme(daily.data[0].time) + ". " + daily.data[0].summary + " It is currently " + currently.temperature + " degrees out. There is a " + currently.precipProbability + "% chance of rain.");
     });
+}
+
+const unixToTIme = (time)=>{
+    var unixTimestamp = time;
+    var monthsArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var date = new Date(unixTimestamp*1000);
+    var year = date.getFullYear();
+    var month = monthsArr[date.getMonth()];
+    var day = date.getDate();
+    var convdataTime = month + " " + day + ", " + year;
+    return convdataTime;
 }
 
 module.exports = forecast;
