@@ -16,17 +16,17 @@ const messageTwo = document.querySelector("#message-2");
 weatherForm.addEventListener("submit", (e)=>{
     e.preventDefault();
     const location = search.value;
-    messageOne.textContent = "Loading...";
+    messageOne.innerHTML = "Loading...";
     messageTwo.textContent = "";
     
     fetch("/weather?address=" + location).then((response)=>{
         response.json().then((data)=>{
             if(data.err){
-                messageOne.textContent = "";
+                messageOne.innerHTML = "";
                 return messageTwo.textContent = data.err;
             }
-            messageOne.textContent = "";
-            messageOne.textContent = data.location + "\n" + data.forecast;
+            messageOne.innerHTML = "";
+            messageOne.innerHTML = data.location + "<br>" + data.forecast;
         });
     });
 
