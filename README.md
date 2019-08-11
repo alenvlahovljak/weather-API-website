@@ -9,6 +9,7 @@ To get the Node server running locally:
 - `npm install` to install all required dependencies
 - Install MongoDB Community Edition ([instructions](https://docs.mongodb.com/manual/installation/#tutorials)) and run it by executing `mongod`
 - `npm run start` to start the local server
+- `npm run dev` to start the local server with nodemon (developer option) 
 
 Alternately, to quickly try out this repo in Heroku: https://weather-api-app-77.herokuapp.com/
 
